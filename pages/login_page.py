@@ -4,12 +4,12 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class login_page:
 
-    URL = "https://www.saucedemo.com/"
+    URL = "https://www.saucedemo.com"
 
     _USER_INPUT = (By.ID, "user-name")
     _PASS_INPUT = (By.ID, "password")
     _LOGIN_BUTTON = (By.ID, "login-button")
-    #Agregar cartel de error para login erroneo
+    _ERROR_LOGIN = (By.CLASS_NAME, "error-message-container error")
 
     def __init__(self, driver):
         driver = self.driver
@@ -39,6 +39,22 @@ class login_page:
         self.completar_user(usuario)
         self.completar_pass(password)
         self.click_login()
-        return self
-
-#Agregar funcion para login erroneo
+        self.wait.until(EC.url_contains("inventory.html"))
+        if "inventory.html" in self.driver.current_url:
+            print("✅ Login exitoso, acceso al inventario confirmado")
+            return True
+        else:
+            print("❌ Login fallido, URL incorrecta")
+            return False
+    
+    def login_erroneo(self, usuario, password):
+        self.completar_user(usuario)
+        self.completar_pass(password)
+        self.click_login()
+        try:
+            self.wait.until(EC.visibility_of_element_located(self._ERROR_LOGIN))
+            print("✅ Mensaje de error detectado correctamente")
+            return True
+        except:
+            print("❌ No se detectó mensaje de error")
+            return False
