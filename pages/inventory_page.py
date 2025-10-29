@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from pages.login_page import login_page
+from pages.login_page import LoginPage
 
 class InventoryPage:
     _MENU_HAMBURGUESA = (By.ID, "react-burger-menu-btn")
@@ -10,6 +10,7 @@ class InventoryPage:
     _ADD_TO_CART= (By.ID, "add-to-cart-sauce-labs-backpack")
     _REMOVE_FROM_CART = (By.ID, "remove-sauce-labs-backpack")
     _CONTADOR_CARRITO = (By.CLASS_NAME, "shopping_cart_badge")
+    _LOGO_SWAG_LABS = (By.CLASS_NAME, "app_logo")
 
     URL = "https://www.saucedemo.com/inventory.html"
 
@@ -19,6 +20,10 @@ class InventoryPage:
 
     def abrir_pagina(self):
         self.driver.get(self.URL)
+        return self
+    
+    def titulo_pagina(self):
+        self.wait.until(EC.visibility_of_element_located(self._LOGO_SWAG_LABS))
         return self
 
     def agregar_producto_al_carrito(self):

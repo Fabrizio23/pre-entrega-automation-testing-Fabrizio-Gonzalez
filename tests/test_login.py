@@ -11,5 +11,3 @@ def test_login(login_in_driver):
     except Exception as e:
         print(f"Error en login. {e}")
         raise
-    finally:
-        driver.quit()
