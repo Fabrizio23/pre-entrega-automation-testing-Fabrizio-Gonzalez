@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-class login_page:
+class LoginPage:
 
     URL = "https://www.saucedemo.com"
 
@@ -10,9 +10,10 @@ class login_page:
     _PASS_INPUT = (By.ID, "password")
     _LOGIN_BUTTON = (By.ID, "login-button")
     _ERROR_LOGIN = (By.CLASS_NAME, "error-message-container error")
+    
 
     def __init__(self, driver):
-        driver = self.driver
+        self.driver = driver
         self.wait = WebDriverWait(driver, 5)
 
     def abrir_pagina(self):
@@ -32,7 +33,7 @@ class login_page:
         return self
     
     def click_login(self):
-        boton = self.wait.until(EC.element_to_be_clickable(*self._LOGIN_BUTTON)).click()
+        boton = self.wait.until(EC.element_to_be_clickable(self._LOGIN_BUTTON)).click()
         return self
     
     def login_completo(self, usuario, password):
