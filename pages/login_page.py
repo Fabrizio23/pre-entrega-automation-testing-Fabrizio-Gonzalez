@@ -9,8 +9,7 @@ class LoginPage:
     _USER_INPUT = (By.ID, "user-name")
     _PASS_INPUT = (By.ID, "password")
     _LOGIN_BUTTON = (By.ID, "login-button")
-    _ERROR_LOGIN = (By.CLASS_NAME, "error-message-container error")
-    
+    _ERROR_LOGIN = (By.CSS_SELECTOR, "#login_button_container > div > form > div.error-message-container.error > h3")
 
     def __init__(self, driver):
         self.driver = driver
@@ -40,13 +39,6 @@ class LoginPage:
         self.completar_user(usuario)
         self.completar_pass(password)
         self.click_login()
-        self.wait.until(EC.url_contains("inventory.html"))
-        if "inventory.html" in self.driver.current_url:
-            print("✅ Login exitoso, acceso al inventario confirmado")
-            return True
-        else:
-            print("❌ Login fallido, URL incorrecta")
-            return False
     
     def login_erroneo(self, usuario, password):
         self.completar_user(usuario)
@@ -59,3 +51,7 @@ class LoginPage:
         except:
             print("❌ No se detectó mensaje de error")
             return False
+        
+    def obtener_error(self):
+        div_error = self.wait.until(EC.visibility_of_element_located(self._ERROR_LOGIN))
+        return div_error.text
