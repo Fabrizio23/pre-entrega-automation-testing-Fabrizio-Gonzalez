@@ -1,23 +1,26 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium import webdriver
+import pytest
+from pages.inventory_page import InventoryPage
+from pages.login_page import LoginPage
+from utils.logger import logger
 
-def test_inventory(login_in_driver):
+@pytest.mark.parametrize("usuario,password",[("standard_user","secret_sauce")])
+def test_inventory(login_in_driver, usuario, password):
     try:
         driver = login_in_driver
-        assert driver.title == "Swag Labs"
-        productos = driver.find_elements(By.CLASS_NAME, "inventory_item")
-        assert len(productos) > 0, "No se encuentran productos listados"
+        LoginPage(driver).login_completo(usuario, password)
+        inventory_page = InventoryPage(driver)
+        logger.info("Verificando elementos en la página de inventario")
+        assert len(inventory_page.obtener_todos_los_productos()) > 0, "El inventario está vacío"
+        logger.info("Verificando el conteo del carrito")
+        assert inventory_page.obtener_conteo_carrito() == 0
+        inventory_page.agregar_primer_producto()
+        logger.info("Verificando el conteo del carrito después de agregar un producto")
+        assert inventory_page.obtener_conteo_carrito() == 1
     except Exception as e:
-        print(f"Error en test_inventory. {e}")
-    try:
-        assert driver.find_element(By.ID, "react-burger-menu-btn").is_displayed(), "Menú hamburguesa visible"
-    except Exception as e:
-        print(f"Error al verificar el menú hamburguesa. {e}")
-        raise
-    try:
-        assert driver.find_element(By.CLASS_NAME, "product_sort_container").is_displayed(), "Filtro visible"
-    except Exception as e:
-        print(f"Error al verificar el filtro. {e}")
+        logger.error(f"Error en test_inventory: {e}")
+        print(f"Error en test_inventory: {e}")
         raise
     finally:
         driver.quit()

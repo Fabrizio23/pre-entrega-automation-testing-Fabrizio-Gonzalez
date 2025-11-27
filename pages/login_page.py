@@ -1,25 +1,29 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import time
 
 class LoginPage:
+    
+    #URL
+    URL = "https://www.saucedemo.com/"
 
-    URL = "https://www.saucedemo.com"
-
-    _USER_INPUT = (By.ID, "user-name")
-    _PASS_INPUT = (By.ID, "password")
+    _USER_INPUT = (By.ID,"user-name")
+    _PASS_INPUT = (By.ID,"password")
     _LOGIN_BUTTON = (By.ID, "login-button")
-    _ERROR_LOGIN = (By.CSS_SELECTOR, "#login_button_container > div > form > div.error-message-container.error > h3")
+    _ERROR = (By.CSS_SELECTOR, "[data-test='error']")
 
-    def __init__(self, driver):
-        self.driver = driver
-        self.wait = WebDriverWait(driver, 5)
+
+
+    def __init__(self,driver):
+        self.driver = driver 
+        self.wait = WebDriverWait(driver,10)
 
     def abrir_pagina(self):
         self.driver.get(self.URL)
         return self
     
-    def completar_user(self, usuario):
+    def completar_user(self,usuario):
         input = self.wait.until(EC.visibility_of_element_located(self._USER_INPUT))
         input.clear()
         input.send_keys(usuario)
@@ -31,27 +35,17 @@ class LoginPage:
         input.send_keys(password)
         return self
     
-    def click_login(self):
-        boton = self.wait.until(EC.element_to_be_clickable(self._LOGIN_BUTTON)).click()
+    def hacer_click_button(self):
+        self.driver.find_element(*self._LOGIN_BUTTON).click()
         return self
-    
-    def login_completo(self, usuario, password):
+
+    def login_completo(self,usuario,password):
         self.completar_user(usuario)
         self.completar_pass(password)
-        self.click_login()
-    
-    def login_erroneo(self, usuario, password):
-        self.completar_user(usuario)
-        self.completar_pass(password)
-        self.click_login()
-        try:
-            self.wait.until(EC.visibility_of_element_located(self._ERROR_LOGIN))
-            print("✅ Mensaje de error detectado correctamente")
-            return True
-        except:
-            print("❌ No se detectó mensaje de error")
-            return False
-        
+        time.sleep(1)
+        self.hacer_click_button()
+        return self
+
     def obtener_error(self):
-        div_error = self.wait.until(EC.visibility_of_element_located(self._ERROR_LOGIN))
+        div_error = self.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "[data-test='error']")))
         return div_error.text
