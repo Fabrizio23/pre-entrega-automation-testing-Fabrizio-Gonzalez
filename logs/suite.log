@@ -1,0 +1,40 @@
+19:58:17 - INFO - Logs de run - Iniciando prueba de login con usuario: standard_user, debe_funcionar: True
+19:58:20 - INFO - Logs de run - Verificando redirección al inventario
+19:58:20 - INFO - Logs de run - Login exitoso, redirigido al inventario
+19:58:35 - INFO - Logs de run - Iniciando prueba de login con usuario: admin, debe_funcionar: False
+2025 -11 -27 H:23:09 - INFO - Logs de run - Iniciando prueba de login con usuario: standard_user, debe_funcionar: True
+2025 -11 -27 H:23:13 - INFO - Logs de run - Verificando redirección al inventario
+2025 -11 -27 H:23:13 - INFO - Logs de run - Login exitoso, redirigido al inventario
+2025 -11 -27 H:23:23 - INFO - Logs de run - Iniciando prueba de login con usuario: admin, debe_funcionar: False
+2025 -11 -27 H:26:06 - INFO - Logs de run - Iniciando prueba de login con usuario: standard_user, debe_funcionar: True
+2025 -11 -27 H:26:07 - INFO - Logs de run - Verificando redirección al inventario
+2025 -11 -27 H:26:07 - INFO - Logs de run - Login exitoso, redirigido al inventario
+2025 -11 -27 H:26:15 - INFO - Logs de run - Iniciando prueba de login con usuario: admin, debe_funcionar: False
+2025 -11 -27 H:34:29 - INFO - Logs de run - Iniciando prueba de login con usuario: standard_user, debe_funcionar: True
+2025 -11 -27 H:34:31 - INFO - Logs de run - Verificando redirección al inventario
+2025 -11 -27 H:34:31 - INFO - Logs de run - Login exitoso, redirigido al inventario
+2025 -11 -27 H:34:37 - INFO - Logs de run - Iniciando prueba de login con usuario: admin, debe_funcionar: False
+2025 -11 -27 H:53:20 - INFO - Logs de run - Iniciando prueba de login con usuario: standard_user, debe_funcionar: True
+2025 -11 -27 H:53:21 - INFO - Logs de run - Verificando redirección al inventario
+2025 -11 -27 H:53:21 - INFO - Logs de run - Login exitoso, redirigido al inventario
+2025 -11 -27 H:53:28 - INFO - Logs de run - Iniciando prueba de login con usuario: admin, debe_funcionar: False
+2025 -11 -27 H:57:30 - INFO - Logs de run - Iniciando prueba de login con usuario: standard_user, debe_funcionar: True
+2025 -11 -27 H:57:32 - INFO - Logs de run - Verificando redirección al inventario
+2025 -11 -27 H:57:32 - INFO - Logs de run - Login exitoso, redirigido al inventario
+2025 -11 -27 H:57:41 - INFO - Logs de run - Iniciando prueba de login con usuario: admin, debe_funcionar: False
+2025 -11 -27 H:05:14 - INFO - Logs de run - Iniciando prueba de login con usuario: standard_user, debe_funcionar: True
+2025 -11 -27 H:05:16 - INFO - Logs de run - Verificando redirección al inventario
+2025 -11 -27 H:05:16 - INFO - Logs de run - Login exitoso, redirigido al inventario
+2025 -11 -27 H:05:24 - INFO - Logs de run - Iniciando prueba de login con usuario: admin, debe_funcionar: False
+2025 -11 -27 H:08:40 - INFO - Logs de run - Solicitud GET a https://reqres.in/api/users/2
+2025 -11 -27 H:08:44 - INFO - Logs de run - Respuesta recibida: 200
+2025 -11 -27 H:08:44 - INFO - Logs de run - Datos del usuario: {'data': {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, 'support': {'url': 'https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral', 'text': 'Tired of writing endless social media content? Let Content Caddy generate it for you.'}, '_meta': {'powered_by': '🚀 ReqRes - Deploy backends in 30 seconds', 'upgrade_url': 'https://app.reqres.in/upgrade', 'docs_url': 'https://reqres.in', 'template_gallery': 'https://app.reqres.in/templates', 'message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'features': ['30 Second Backend Templates', 'Custom API Endpoints', 'Data Persistence', 'Real-time Analytics'], 'upgrade_cta': 'Upgrade to Pro for unlimited requests, custom endpoints, and data persistence'}}
+2025 -11 -27 H:08:46 - INFO - Logs de run - Solicitud DELETE a https://reqres.in/api/users
+2025 -11 -27 H:11:53 - INFO - Logs de run - Iniciando prueba de login con usuario: standard_user, debe_funcionar: True
+2025 -11 -27 H:11:54 - INFO - Logs de run - Verificando redirección al inventario
+2025 -11 -27 H:11:54 - INFO - Logs de run - Login exitoso, redirigido al inventario
+2025 -11 -27 H:12:03 - INFO - Logs de run - Iniciando prueba de login con usuario: admin, debe_funcionar: False
+2025 -11 -27 H:14:49 - INFO - Logs de run - Solicitud GET a https://reqres.in/api/users/2
+2025 -11 -27 H:14:51 - INFO - Logs de run - Respuesta recibida: 200
+2025 -11 -27 H:14:51 - INFO - Logs de run - Datos del usuario: {'data': {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, 'support': {'url': 'https://contentcaddy.io?utm_source=reqres&utm_medium=json&utm_campaign=referral', 'text': 'Tired of writing endless social media content? Let Content Caddy generate it for you.'}, '_meta': {'powered_by': '🚀 ReqRes - Deploy backends in 30 seconds', 'upgrade_url': 'https://app.reqres.in/upgrade', 'docs_url': 'https://reqres.in', 'template_gallery': 'https://app.reqres.in/templates', 'message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'features': ['30 Second Backend Templates', 'Custom API Endpoints', 'Data Persistence', 'Real-time Analytics'], 'upgrade_cta': 'Upgrade to Pro for unlimited requests, custom endpoints, and data persistence'}}
+2025 -11 -27 H:14:52 - INFO - Logs de run - Solicitud DELETE a https://reqres.in/api/users
