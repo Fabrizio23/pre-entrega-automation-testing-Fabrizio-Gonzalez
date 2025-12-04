@@ -1,5 +1,4 @@
 import  requests
-import pytest
 from utils.logger import logger
 
 def test_get_user(url_base,encabezado):
@@ -15,7 +14,7 @@ def test_get_user(url_base,encabezado):
 
 def test_create_user(url_base,encabezado):
     payload = {
-        "name": "Chancleto", 
+        "name": "Fernando", 
         "job": "Desarrollador"
     }
     response = requests.post(url_base, headers=encabezado, json=payload)

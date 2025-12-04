@@ -13,7 +13,6 @@ def test_login_validation(login_in_driver, usuario, password, debe_funcionar):
     driver = login_in_driver
 
     login_page = LoginPage(driver)
-
     login_page.login_completo(usuario, password)
 
     if debe_funcionar:

@@ -6,7 +6,6 @@ from pages.inventory_page import InventoryPage
 from pages.cart_page import CartPage
 from pages.login_page import LoginPage
 
-
 @pytest.mark.parametrize("usuario,password",[("standard_user","secret_sauce")])
 def test_cart(login_in_driver,usuario,password):
     try:
@@ -23,5 +22,3 @@ def test_cart(login_in_driver,usuario,password):
         logger.error(f"Error en test_cart: {e}")
         print(f"Error en test_cart: {e}")
         raise
-    finally:
-        driver.quit()

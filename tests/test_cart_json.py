@@ -16,6 +16,7 @@ def test_cart_json(login_in_driver, usuario, password, nombre_producto):
     try:
         driver = login_in_driver
         LoginPage(driver).login_completo(usuario, password)
+        
         inventory_page = InventoryPage(driver)
         inventory_page.agregar_producto_por_nombre(nombre_producto)
         inventory_page.abrir_carrito()
