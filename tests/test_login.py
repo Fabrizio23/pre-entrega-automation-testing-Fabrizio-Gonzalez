@@ -4,7 +4,6 @@ import pytest
 from utils.datos import leer_csv_login
 from pages.login_page import LoginPage
 from utils.logger import logger
-from utils.logger import logger
 
 
 @pytest.mark.parametrize("usuario,password,debe_funcionar", leer_csv_login("datos/data_login.csv"))
@@ -12,7 +11,6 @@ def test_login_validation(login_in_driver, usuario, password, debe_funcionar):
     logger.info(f"Iniciando prueba de login con usuario: {usuario}, debe_funcionar: {debe_funcionar}")
     driver = login_in_driver
     page = LoginPage(driver)
-
     page.login_completo(usuario, password)
 
     if debe_funcionar:

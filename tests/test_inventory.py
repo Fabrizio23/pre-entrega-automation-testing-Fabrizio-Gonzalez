@@ -22,5 +22,3 @@ def test_inventory(login_in_driver, usuario, password):
         logger.error(f"Error en test_inventory: {e}")
         print(f"Error en test_inventory: {e}")
         raise
-    finally:
-        driver.quit()
